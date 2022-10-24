@@ -588,7 +588,7 @@ static int gdigrab_read_packet(AVFormatContext *s1, AVPacket *pkt)
                 clip_rect.right - clip_rect.left,
                 clip_rect.bottom - clip_rect.top,
                 source_hdc,
-                clip_rect.left, clip_rect.top, SRCCOPY | CAPTUREBLT)) {
+                clip_rect.left, clip_rect.top, SRCCOPY /* Toby | CAPTUREBLT */)) {
         WIN32_API_ERROR("Failed to capture image");
         return AVERROR(EIO);
     }
